@@ -11,4 +11,72 @@
     <p><a [routerLink]="['/login']">Logout</a></p>
     <p><a (click)="getUserTransitions()">getTransactions</a></p>
     <p><a (click)="getUserInfo()">getUserInfo</a></p>
+    <br>
+    <div *ngIf="userInfo">
+        {{userInfo?.user_info_token | json}}
+    </div>
+</div>
+
+<div class="container">
+  <h2>Transactions</h2>
+  <!--<p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>-->
+    <div class="row">
+        <div class="col-sm-4">
+            <div *ngIf="userInfo">
+                <h3>
+                    {{userInfo?.user_info_token.name | json}}
+                </h3>
+            </div>
+        </div>
+        <div class="col-sm-8 text-right">
+            <div *ngIf="userInfo">
+                <h3>
+                    {{userInfo?.user_info_token.balance | json}}
+                </h3>
+            </div>
+        </div>
+    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
+      </tr>      
+      <tr class="success">
+        <td>Success</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr class="danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr class="info">
+        <td>Info</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+      <tr class="warning">
+        <td>Warning</td>
+        <td>Refs</td>
+        <td>bo@example.com</td>
+      </tr>
+      <tr class="active">
+        <td>Active</td>
+        <td>Activeson</td>
+        <td>act@example.com</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
